@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <header>
+      <div class="content">
+        <img src="http://www.gravatar.com/avatar/4dea71e9df9a75bddd0c6aac8095065b?s=160">
+        <div class="brand">{{ site.name }}</div>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/archive.html">All Posts</a></li>
+        <li><a href="/categories.html">Categories</a></li>
+        <li><a href="/cv.html">CV</a></li>
+      </ul>
+    </nav>
+    <div class="main content">
+      {{ content }}
+    </div>
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
-
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
-
-    </body>
+    <footer class="content">
+      <section>
+        <p>Theme hand crafted by me, any similatrity to other sites is purely a result of my lack of creativity on my part. (I did write all the CSS myself)</p>
+      </section>
+      <section>
+        <p>The posts on this site are my opinion, they do not refelect the views or opinions of the anyone I work for/with.</p>
+      </section>
+      <section>
+        <ul>
+          <li>Twitter: <a href="https://twitter.com/ArcathWhitefall">@ArcathWhitefall</a></li>
+          <li>Google+: <a href="https://plus.google.com/113061405459106592140?rel=author">+Arcath</a></li>
+          <li>GitHub: <a href="https://github.com/Arcath">Arcath</a></li>
+        </ul>
+      </section>
+      <section>
+        <p>Hosted by GutHub Pages</p>
+        <p><a href="https://github.com/Arcath/arcath.github.io">Source</a></p>
+      </section>
+    </footer>
+  </body>
 </html>

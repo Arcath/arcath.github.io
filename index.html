@@ -1,13 +1,21 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Adam Laycock
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div class="home-box">
+  {% for post in site.posts limit:3 %}
+    <div class="post">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p>{{ post.summary }}</p>
+    </div>
+  {% endfor %}
 </div>
+
+<h1>Hi</h1>
+
+<p>My name is Adam Laycock, or Arcath depending where you meet me.</p>
+
+<p>I work as a Web Developer and IT Engineer in the North West of England supporting a large number of Primary Schools.</p>
+
+<p>This blog contains my random musings, news about my gems and some useful information.</p>
