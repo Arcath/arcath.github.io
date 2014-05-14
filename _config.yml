@@ -7,9 +7,9 @@ domain: arcath.github.io
 sass:
   style: :compressed
 
-# Octopad Config
-
-github_user: arcath
-github_repo: arcath.github.io
-github_branch: master
-github_path: _posts/
+prose:
+  siteurl: "http://arcath.net/"
+  media: "media/"
+  ignore:
+    - CNAME
+    - Rakefile
