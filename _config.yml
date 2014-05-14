@@ -1,8 +1,11 @@
 name: Adam Laycock
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 permalink: ":year/:month/:day/:title.html"
 domain: arcath.github.io
+
+sass:
+  style: :compressed
 
 # Octopad Config
 

@@ -42,7 +42,7 @@ if(Test-Path $FMSInstall){
         if(!($application -Match "Last")){
             $current_version = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($SimsPath + "\Setups\FMS\" + $application + ".exe").FileVersion
             if($current_version.compareTo($version)){
-              $install = $SimsPath + "\Setups\" + $application + '.exe'
+              $install = $SimsPath + "\Setups\FMS\" + $application + '.exe'
               & $install '{QuietMode}'
          }
        }

@@ -6,30 +6,29 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/css/syntax.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/layout.css">
   </head>
   <body>
     <header>
       <div class="content">
-        <img src="http://www.gravatar.com/avatar/4dea71e9df9a75bddd0c6aac8095065b?s=160">
         <div class="brand">{{ site.name }}</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/archive.html">All Posts</a></li>
+            <li><a href="/categories.html">Categories</a></li>
+            <li><a href="/cv.html">CV</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/archive.html">All Posts</a></li>
-        <li><a href="/categories.html">Categories</a></li>
-        <li><a href="/cv.html">CV</a></li>
-      </ul>
-    </nav>
     <div class="main content">
       {{ content }}
     </div>
 
     <footer class="content">
       <section>
-        <p>Theme hand crafted by me, any similatrity to other sites is purely a result of my lack of creativity on my part. (I did write all the CSS myself)</p>
+        <p>Theme hand crafted by me, any similatrity to other sites is purely a result of a lack of creativity on my part. (I did write all the CSS myself)</p>
       </section>
       <section>
         <p>The posts on this site are my opinion, they do not refelect the views or opinions of the anyone I work for/with.</p>
