@@ -167,6 +167,12 @@ footer{
   }
 }
 
+.atom{
+  ul{
+    list-style:none;
+  }
+}
+
 @media(max-width:990px){
   .content{
     width:100%;

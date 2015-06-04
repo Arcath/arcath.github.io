@@ -19,11 +19,7 @@ The work I undertake in schools covers the whole spectrum from in situe hardware
 
 I handle all software & hardware deployments in the schools I support, as well as advising the school about how best to develop their IT.
 
-### Web Developer at Ed-IT Solutions (2008-Present)
-
-I maintain and setup websites for the schools that [Ed-IT Solutions] supports and run a couple of [Rails] applications for the company.
-
-The school websites are all PHP/MySQL sites that usually run Site@School or Wordpress. I would usually make the template and populate the site to begin with then hand of the maintenance responsibility to the school only going back into the site when something in the template needed changing or there was something new that they wanted to do.
+My work also includes development of applications for use in the company and the schools we support. Internally I created and maintain a Rails application that handles our stock control, purchasing and sales.
 
 ## Past Work
 
@@ -76,13 +72,7 @@ I created and maintained websites for the schools supported by the North West Of
 
  - Capita SIMS Administration
  - SMART Interactive Whiteboards
-
-
-## Interests
-
- - Games (PC/PS3)
- - Web Development & General Programming
- -
+ - Interactive TVs
 
 [Ed-IT Solutions]: http://www.ed-itsolutions.com
 [Rails]: http://www.rubyonrails.org
