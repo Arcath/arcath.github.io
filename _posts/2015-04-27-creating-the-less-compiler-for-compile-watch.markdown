@@ -3,7 +3,7 @@ layout: post
 title: "Creating the Less compiler for compile-watch"
 date: "2015-04-27"
 categories: [Atom]
-summary: A little guide on how to adda format to compile-watch
+summary: A little guide on how to add a format to compile-watch
 ---
 
 [compile-watch] is the latest [Atom] package I've been working on, it is the successor to [sass-watch] and takes over all the functionality of sass-watch whilst adding a lot more.
@@ -41,7 +41,7 @@ At this point that test will fail obviously so now its time to add the new forma
 
 ### Step 2 add less as a dependancy
 
-Add `"less" : "2.5.0"` to `package.json` and run `apm install`. Less is now install into `node_mdoules` and is ready to be used.
+Add `"less" : "2.5.0"` to `package.json` and run `apm install`. Less is now installed into `node_mdoules` and is ready to be used.
 
 ### Step 3 writing the format
 
@@ -49,11 +49,12 @@ Create an empty file at `lib/formats/less.coffee` and open it.
 
 #### Requires
 
-At the top of the file we need to require LESS and the format class.
+At the top of the file we need to require LESS,the format class and fs.
 
 ```coffee
 less = require 'less'
 Format = require '../format'
+fs = require 'fs-plus'
 ```
 
 #### Format Class

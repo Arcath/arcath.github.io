@@ -3,19 +3,17 @@ layout: default
 title: Adam Laycock
 ---
 
-<div class="home-content">
-  <h1>Hi</h1>
-  <p>I am an IT Engineer &amp; Web Developer working for a small company in the North West of England.</p>
-  <p>I spend most of my time working with schools on all aspects of IT in Education. <a href="/cv.html">Please see my CV for more details.</a></p>
-  <p>This blog has my random musings, news about my gems &amp; projects and some potentially helpful posts.</p>
-</div>
-
-<div class="home-content">
-  <h1>Posts</h1>
-  {% for post in site.posts limit:3 %}
-    <div class="post">
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.summary }}</p>
+<div class="main">
+  <div class="left">
+    {% include nav.html %}
+    <p>I am an IT Engineer &amp; Developer living and working in the North West of England.</p>
+    <p>I work for <a href="http://www.ed-itsolutions.com">Ed-IT Solutions</a> supporting Schools of all kinds with thier use of technology.</p>
+    <p>I also code things for the company, for the schools and for the community.</p>
+    <div class="nav">
+      <a href="https://twitter.com/ArcathWhitefall" class="icon ion-social-twitter-outline"></a>
+      <a href="https://github.com/Arcath" class="icon ion-social-github-outline"></a>
     </div>
-  {% endfor %}
+  </div>
+  <div class="right">
+  </div>
 </div>
