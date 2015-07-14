@@ -10,7 +10,7 @@ I am an IT Professional that is self-motivated and able to adapt to any kind of 
 
 ### Senior IT Engineer at Ed-IT Solutions (2008-Present)
 
-I am responsible for maintaining the IT systems at a few primary schools as well as working with other engineers to improve the systems in every school [Ed-IT Solutions] works in.
+I am responsible for maintaining the IT systems at my assigned primary schools as well as working with other engineers to improve the systems in every school [Ed-IT Solutions] supports.
 
 Day to day I perform regular _maintenance visits_ to the schools I am assigned and whilst on site I will work through the open tickets and liaise with staff to get issues resolved quickly and to a high standard. In 2015 I helped move our support system over to a web based ticket system with email integration.
 
@@ -19,13 +19,13 @@ Outside of regular visits I undertake _project work_ which takes the form of:
   - SIMS Upgrades and Transfers
   - Server & Domain Builds and Installation
   - Network Stack Installation
-  - And any other jobs to disruptive to do during a normal visit.
+  - And any other jobs too disruptive to do during a normal visit.
 
-I handle all software & hardware deployments in the schools I support, as well as advising the school about how best to develop their IT.
+I handle all software & hardware deployments in the schools I support, as well as advising the school about how best to develop their IT infrastructure.
 
 My work also includes development of applications for use in the company and the schools we support. Internally I created and maintain a Rails application that handles our stock control, purchasing and sales.
 
-I also work closely with our Designer to turn his website designs into Wordpress themes. I then help to deploy the finished website to the schools web server.
+I also work closely with our designer to turn his website designs into Wordpress themes. I then help to deploy the finished website to the schools web server.
 
 Some of the work I perform gets written up on my [blog](http://arcath.net/blog.html) under [work](http://arcath.net/categories/work.html).
 
