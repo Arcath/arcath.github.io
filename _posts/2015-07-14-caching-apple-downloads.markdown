@@ -32,11 +32,11 @@ To only use this proxy server for Apple downloads I used a PAC file hosted on th
 
 ```javascript
 function FindProxyForURL(url,host){
-  appleURLS= ["*phobos.apple.com*","*appldnld.apple.com*"];
+  appleURLS= ["*phobos*","*appldnld*"];
 
-	for(i=0; i<appleURLs.length; i++){
- 		if(shExpMatch(host, appleURLs[i])){
-			return "PROXY 10.80.64.10:3128; DIRECT";
+	for(i=0; i<appleURLS.length; i++){
+ 		if(shExpMatch(host, appleURLS[i])){
+			return "PROXY 10.80.64.10:3128;";
 		}
 	}
 
