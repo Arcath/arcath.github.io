@@ -44,7 +44,7 @@ and then in your stylesheet
 }
 ```
 
-Thats it! Now when ever a user changes anything in the theme customizer the stylesheet it generated. For example one of the themes I made has options like this:
+Thats it! Now when ever a user changes anything in the theme customizer the stylesheet is generated. For example one of the themes I made has options like this:
 
 ![Theme Customizer](/img/posts/wp-less-example.png)
 
