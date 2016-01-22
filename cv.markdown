@@ -1,7 +1,10 @@
 ---
-layout: full
+layout: twentysixteen
 title: "CV"
 ---
+
+# CV
+
 ## Profile
 
 I am an IT Professional that is self-motivated and able to adapt to any kind of technology with a focus on its use in Education. I am also a competent [NodeJS] developer with the drive and motivation to make applications and tools to improve the workflow of everyone I work with.
@@ -26,8 +29,6 @@ I handle all software & hardware deployments in the schools I support, as well a
 My work also includes development of applications for use in the company and the schools we support. Internally I created and maintain a Rails application that handles our stock control, purchasing and sales.
 
 I also work closely with our designer to turn his website designs into Wordpress themes. I then help to deploy the finished website to the schools web server.
-
-Some of the work I perform gets written up on my [blog](http://arcath.net/blog.html) under [work](http://arcath.net/categories/work.html).
 
 ## Past Work
 

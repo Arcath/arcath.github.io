@@ -9,8 +9,6 @@ summary: "Adobe Air isn't just an awful product, its a pain to deploy as well."
 
 As much as I hate Adobe Air some deluded companies think its the best way to make software and I've been forced on more than one occasion to deploy it to the whole network, which leads nicely into the big problem... __There is no MSI__ and just as annoying software for it are _.air_ files that it wants to install...
 
-<!--more-->
-
 Adobe Air does have a silent install option so its deployment can be scripted, my (& my companies) method of deploying silent exes is to use this script:
 
 {% gist 8952312 %}

@@ -3,7 +3,7 @@ layout: post
 title: "A New Blog"
 date: 2013-08-17 09:32
 comments: true
-categories: Blog
+categories: [Blog]
 summary: "Its time to drop wordpress in favour of something new."
 ---
 
@@ -11,7 +11,7 @@ Welcome to my new Blog!
 
 I've been thinking about the best way to communicate some of the more random rubbish that I generate and with my custom written blogs I've always had the issue that to post $thing required $feature to be written first and I just lost interest. I am obviously over valuing what I have to say but some of it should be of some help to people.
 
-<!-- more -->I will try and post here about my coding work, possibly even about the work I do at [Ed-IT Solutions](http://www.ed-itsolutions.com) although most of my work there involves schools and details that can't be shared freely.
+I will try and post here about my coding work, possibly even about the work I do at [Ed-IT Solutions](http://www.ed-itsolutions.com) although most of my work there involves schools and details that can't be shared freely.
 
 I chose to use [Octopress](http://octopress.org) with github pages hosting so that I still get to use git for version control and deployments as well as using a pre made blogging framework.
 

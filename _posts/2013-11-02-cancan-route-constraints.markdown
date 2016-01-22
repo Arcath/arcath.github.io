@@ -12,8 +12,6 @@ The only solution is to secure access to it, which I can only do within the rout
 
 I use [CanCan](https://github.com/ryanb/cancan) which is a great solution, I just need to get it working in the router.
 
-<!--more-->
-
 The class I wrote to do this is actually pretty simple:
 
 ```ruby
@@ -22,7 +20,7 @@ class CanCanConstraint
     @action = action
     @resource = resource
   end
-  
+
   def matches?(request)
     if request.session['user_id'].present?
       current_user = User.find(request.session['user_id'])

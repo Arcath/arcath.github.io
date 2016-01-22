@@ -10,8 +10,6 @@ Active Records output may look like an array but its actually a special class th
 
 For [Adauth](http://adauth.arcath.net) I want to provide results in something more than an array with the ability to order etc... but not over complicate things for the end user (if you just want an array you can still get it). So how do we make something like AR?
 
-<!--More-->
-
 So straight away lets create a new class that inherits from `Array` and to begin with it needs no extra methods because `Array.new` can take an array and obviosuly that will return our new object acting as an `Array`.
 
 This new class would look like this

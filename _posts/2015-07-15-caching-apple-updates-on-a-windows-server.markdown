@@ -2,7 +2,7 @@
 layout: post
 title: "Caching Apple Downloads on a Windows Server"
 date: "2015-07-15"
-categories: [work]
+categories: [Work]
 ---
 
 Yesterday I posted about [caching apple downloads](/2015/07/14/caching-apple-downloads.html) which was great but most of my schools do not have a linux server available nor do they have the spare equipment to setup anything that could be considered reliable enough.

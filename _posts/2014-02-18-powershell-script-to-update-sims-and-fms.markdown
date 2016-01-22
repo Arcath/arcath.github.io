@@ -10,8 +10,6 @@ SIMS is a large application made by Capita that the schools are forced to use by
 
 There is an EXE called `SIMSLoad.exe` that when run does nothing but install updates! Even on machines that have failed or just never decided to update. My first idea was to use this EXE to trigger updates, maybe by adding it as a startup script but I couldn't get it to run silently.
 
-<!--more-->
-
 Next came the idea to copy its functionality which at a very basic level is to check the `SIMS\Setups` Directory for the installer versions and compare them to the versions `SIMSLoad.ini` says are installed on this machine. If there are any differences it installs the version from the server.
 
 This is the script I came up with:

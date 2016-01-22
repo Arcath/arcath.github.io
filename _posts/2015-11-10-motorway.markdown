@@ -2,7 +2,7 @@
 layout: post
 title: "Motorway"
 date: "2015-11-10"
-categories: [motorway]
+categories: [Motorway]
 ---
 Motorway provides flow control for your node applications through Junctions and Actions.
 

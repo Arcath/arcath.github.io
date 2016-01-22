@@ -3,7 +3,7 @@ layout: post
 title: "An Updated Blog"
 date: 2014-03-24 12:00
 comments: true
-categories: Blog
+categories: [Blog]
 summary: "The blog is being updated again. This time its all new."
 ---
 

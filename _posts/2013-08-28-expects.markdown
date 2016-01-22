@@ -3,15 +3,13 @@ layout: post
 title: "Expects"
 date: 2013-08-28 15:56
 comments: true
-categories: Expects
+categories: [Expects]
 summary: "I found my self using quite a few input checking techniques so I've made an input validator for methods "
 ---
 
 [Expects](https://github.com/Arcath/Expects) is lightweight DSL for defining what you expect a method to receive as input.
 
 I'd expect this gem to be used more as a support gem, being a dependancy for other gems to use to make sure that what the end user/developer was passing met with requirements.
-
-<!--more-->
 
 Expects is pretty simple to use, say you had this class
 

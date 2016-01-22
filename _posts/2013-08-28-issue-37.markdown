@@ -3,14 +3,12 @@ layout: post
 title: "issue 37"
 date: 2013-08-28 09:19
 comments: true
-categories: Adauth
+categories: [Adauth]
 ---
 
 [Adauth/Issue#37](https://github.com/Arcath/Adauth/issues/37) was raised by [weightyfoe](https://github.com/weightyfoe) and has proven to be a rather weird one.
 
 Basically Adauth would successfuly authenticate a user when no password was supplied which to me sounds like AD allowing some kind anonymous login to query data that _everyone_ has access to. The problem is that Adauth uses _did it bind correctly?_ as the true/false value for the user details being correct.
-
-<!--more-->
 
 ## What kind of access do we get using passwordless?
 

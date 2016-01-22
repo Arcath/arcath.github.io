@@ -2,14 +2,13 @@ name: Adam Laycock
 markdown: redcarpet
 highlighter: pygments
 permalink: ":year/:month/:day/:title.html"
-domain: arcath.github.io
+domain: arcath.net
+
+gem:
+  - jekyll-feed
 
 sass:
   style: :compressed
 
-prose:
-  siteurl: "http://arcath.net/"
-  media: "media/"
-  ignore:
-    - CNAME
-    - Rakefile
+pygments:
+  options: ['startinline']

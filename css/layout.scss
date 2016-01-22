@@ -5,78 +5,6 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,300italic,700italic);
 @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 
-// Some Variables
-$text-color: #444;
-$highlight-color: #9bf;
-$top-margin:15%;
-
-body{
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size:1.2em;
-  font-weight:300;
-  margin:0px;
-  padding:0px;
-  color:$text-color;
-  text-rendering: optimizeLegibility;
-}
-
-.main{
-  .left{
-    width:25%;
-    left:10%;
-    top:$top-margin;
-    position:fixed;
-
-    ul{
-      list-style: none;
-      padding-left:0px;
-    }
-  }
-
-  .right{
-    width:50%;
-    position:absolute;
-    top:$top-margin;
-    left:40%;
-    margin-bottom:10%;
-  }
-
-  a{
-    text-decoration: none;
-    color: darken($text-color, 25%);
-
-    border-bottom: 1px solid rgba(lighten($text-color, 25%), 0.3);
-    transition: color 0.2s;
-  }
-
-  a:hover{
-    color: $highlight-color;
-  }
-
-  a.icon{
-    border:none;
-    font-size:32px;
-    height:40px;
-    width:40px;
-    text-align:center;
-    line-height:40px;
-    display:block;
-    transition:transform 0.2s, color 0.2s;
-    color:rgba($text-color, 0.8);
-  }
-  a.icon:hover{
-    transform:scale(1.3);
-    color:rgba($highlight-color, 0.8);
-  }
-
-  .nav{
-    height:45px;
-    a{
-      float:left;
-    }
-  }
-}
-
 /* Syntax */
 .highlight  { background: #ffffff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
@@ -138,3 +66,54 @@ body{
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+body{
+  font-family:'Avenir Next LT Pro Condensed', sans-serif;
+  color: #999;
+}
+
+a, a:visited{
+  color:#9bf;
+  text-decoration:none;
+}
+
+a:hover{
+  color:fade-out(#9bf, 0.5);
+}
+
+.menu{
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:40px;
+  height:100%;
+  background-color:#f0f0f0;
+
+  img{
+    margin:auto;
+    width:32px;
+    height:32px;
+    border-radius:16px;
+    display:block;
+    margin-top:16px;
+  }
+
+  .nav{
+    font-size:32px;
+    text-align:center;
+    margin-top:10px;
+  }
+}
+
+.content{
+  margin-left:45px;
+  padding:50px 10% 50px 10%;
+}
+
+.home{
+  text-align:center;
+
+  img{
+    border-radius:100px;
+  }
+}
