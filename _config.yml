@@ -3,12 +3,15 @@ markdown: redcarpet
 highlighter: pygments
 permalink: ":year/:month/:day/:title.html"
 domain: arcath.net
+incremental: true
 
-gem:
+gems:
   - jekyll-feed
+  - jekyll-gist
+  - jekyll-sitemap
 
 sass:
   style: :compressed
 
-pygments:
+highlighter:
   options: ['startinline']
