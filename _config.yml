@@ -4,6 +4,7 @@ highlighter: pygments
 permalink: ":year/:month/:day/:title.html"
 domain: arcath.net
 incremental: true
+show_drafts: true
 
 gems:
   - jekyll-feed
