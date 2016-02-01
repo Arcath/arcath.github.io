@@ -6,6 +6,7 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/fonts/avenir.css">
+    <link rel="stylesheet" href="/css/hint.css">
     <link rel="stylesheet" href="/css/layout.css">
   </head>
   <body class="{{ page.bodyClass }}">
@@ -14,12 +15,24 @@
         <img src="/img/me.jpg" />
       </a>
       <div class="nav">
-        <a href="/" class="icon ion-ios-home"></a>
-        <a href="/blog.html" class="icon ion-android-create"></a>
-        <a href="/code.html" class="icon ion-code-working"></a>
-        <a href="/cv.html" class="icon ion-document-text"></a>
-        <a href="https://twitter.com/ArcathWhitefall" class="icon ion-social-twitter"></a>
-        <a href="https://github.com/Arcath" class="icon ion-social-github"></a>
+        <span class="hint--right" data-hint="Home">
+          <a href="/" class="icon ion-ios-home"></a>
+        </span>
+        <span class="hint--right" data-hint="Blog">
+          <a href="/blog.html" class="icon ion-android-create"></a>
+        </span>
+        <span class="hint--right" data-hint="Code &amp; Projects">
+          <a href="/code.html" class="icon ion-code-working"></a>
+        </span>
+        <span class="hint--right" data-hint="CV">
+          <a href="/cv.html" class="icon ion-document-text"></a>
+        </span>
+        <span class="hint--right" data-hint="Twitter">
+          <a href="https://twitter.com/ArcathWhitefall" class="icon ion-social-twitter"></a>
+        </span>
+        <span class="hint--right" data-hint="Github">
+          <a href="https://github.com/Arcath" class="icon ion-social-github"></a>
+        </span>
       </div>
     </div>
     <div class="content">

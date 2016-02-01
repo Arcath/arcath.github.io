@@ -70,6 +70,7 @@
 body{
   font-family:'Avenir Next LT Pro Condensed', sans-serif;
   color: #999;
+  font-size:18px;
 }
 
 a, a:visited{
@@ -115,5 +116,11 @@ a:hover{
 
   img{
     border-radius:100px;
+  }
+}
+
+.info{
+  a{
+    font-size:2em;
   }
 }
