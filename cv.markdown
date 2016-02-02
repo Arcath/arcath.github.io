@@ -36,6 +36,8 @@ I also work closely with our designer to turn his website designs into Wordpress
 
 I created and maintained websites for the schools supported by the North West Office of Empowered Learning. These sites where all static HTML/CSS that I manually updated.
 
+I also assisted on installations during school holidays helping the engineers setup and deploy equipment in the schools the company suported.
+
 ## Education
 
 ### ICT Focus @ Lancaster University
