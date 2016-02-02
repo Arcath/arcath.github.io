@@ -38,11 +38,11 @@ $less->addVariable('textColor', my_theme_get_or_use_default_theme_option('text_c
 
 and then in your stylesheet
 
-```css
+{% highlight css %}
 .class{
   color:@textColor;
 }
-```
+{% endhighlight %}
 
 Thats it! Now when ever a user changes anything in the theme customizer the stylesheet is generated. For example one of the themes I made has options like this:
 
