@@ -1,5 +1,4 @@
 ---
-layout: projects
 collection: projects
 title: 'Jekyll-Atom'
 github: http://github.com/arcath/jekyll-atom

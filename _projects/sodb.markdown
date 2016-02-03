@@ -1,5 +1,4 @@
 ---
-layout: projects
 collection: projects
 title: 'SODB'
 github: http://github.com/arcath/sodb
