@@ -3,8 +3,11 @@ markdown: kramdown
 highlighter: rouge
 permalink: ":year/:month/:day/:title.html"
 domain: arcath.net
-#incremental: true
+incremental: true
 show_drafts: true
+
+kramdown:
+  input: GFM
 
 gems:
   - jekyll-feed

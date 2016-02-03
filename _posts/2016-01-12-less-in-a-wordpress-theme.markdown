@@ -11,7 +11,7 @@ The first part of this setup is [WP-Less] which allows [Wordpress] to compile [L
 
 With that in place I added the following to my `functions.php`
 
-{% highlight php startinline %}
+``` php
 function my_theme_enqueue_styles(){
   require dirname(__FILE__) . '/vendor/wp-less/bootstrap-for-theme.php';
   $less = WPLessPlugin::getInstance();
@@ -20,7 +20,7 @@ function my_theme_enqueue_styles(){
 }
 
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
-{% endhighlight %}
+```
 
 This compiles style.less and adds it to the head tag through `wp_header()`.
 
@@ -32,17 +32,17 @@ For this example lets assume that you have a function called `my_theme_get_or_us
 
 You can then pass those options to WP-Less in your `my_theme_enqueue_styles` function like so
 
-{% highlight php startinline %}
+``` php
 $less->addVariable('textColor', my_theme_get_or_use_default_theme_option('text_color'));
-{% endhighlight %}
+```
 
 and then in your stylesheet
 
-{% highlight css %}
+``` css
 .class{
   color:@textColor;
 }
-{% endhighlight %}
+```
 
 Thats it! Now when ever a user changes anything in the theme customizer the stylesheet is generated. For example one of the themes I made has options like this:
 
