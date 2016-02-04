@@ -6,6 +6,8 @@ function bindLinks(){
   $("a[href^='/']").on('click', function(e){
     // Stop link from activating
     e.preventDefault()
+
+    // Start the NProgress bar
     NProgress.start()
 
     // Get the URL to load
@@ -30,6 +32,23 @@ function bindLinks(){
       ga('set', 'location', window.location.href);
       ga('send', 'pageview');
 
+      // Update disqus
+      // If there is a disqus_thread on the page?
+      if($('#disqus_thread').length !== 0){
+        // Has Disqus been loaded before
+        if ('undefined' !== typeof DISQUS){
+          // Reset Disqus
+          DISQUS.reset({
+            reload: true,
+            config: function () {
+              this.page.identifier = disqus_identifier
+              this.page.url = disqus_url
+            }
+          });
+        }
+      }
+
+      // Make NProgress finish
       NProgress.done()
 
       // Re Bind to all the links on the page

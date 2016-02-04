@@ -13,9 +13,11 @@ layout: twentysixteen
   var disqus_identifier = 'http://{{site.domain}}{{ page.url }}';
   var disqus_url = 'http://{{site.domain}}{{ page.url }}';
   var disqus_script = 'embed.js';
-  (function () {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  }());
+  if ('undefined' == typeof DISQUS) {
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+  }
 </script>
