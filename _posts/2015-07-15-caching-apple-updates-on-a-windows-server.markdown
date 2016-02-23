@@ -13,7 +13,7 @@ A quick google and yes there is [a version of squid for Windows](http://docs.dil
 
 The default config is pretty good and is 2 line changes away from being a caching server and then only needs the rules for the Apple download servers.
 
-{% gist 771d6b4bab433900ea75 %}
+{% gist arcath/771d6b4bab433900ea75 %}
 
 When I first tried to start squid with this config squid crashed on launch with an error about the cache not having the right folders in it. Running `D:\Squid\bin\squid.exe -z` fixed this.
 
