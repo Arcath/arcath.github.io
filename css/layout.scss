@@ -135,6 +135,34 @@ a:hover{
   }
 }
 
+.searchForm{
+  background-color:#f0f0f0;
+  position:fixed;
+  top:-50px;
+  height:40px;
+  width:100%;
+  text-align:center;
+  margin-top:0px;
+  transition: margin-top 0.4s;
+
+  form{
+    input{
+      height:36px;
+      margin:2px;
+      box-sizing:border-box;
+      font-family:'Avenir Next LT Pro Condensed', sans-serif;
+    }
+
+    #searchField{
+      width:200px;
+    }
+  }
+}
+
+.searchForm.show{
+  margin-top:50px;
+}
+
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
