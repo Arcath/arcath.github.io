@@ -82,6 +82,16 @@ function loadSearch(){
     this.field('summary')
   })
 
+  // If search parameter exists
+  if(getParameterByName('search')){
+    query = getParameterByName('search')
+
+    $('.searchForm').toggleClass('show')
+    $('#searchField').val(query)
+    $('#content').html('')
+    $('title').html('Loading...')
+  }
+
   // Send a request to get the content json file
   $.getJSON('/content.json', function(data){
 
@@ -92,6 +102,10 @@ function loadSearch(){
     $.each(data, function(index, entry){
       idx.add($.extend({"id": index}, entry))
     })
+
+    if(getParameterByName('search')){
+      handleSearch()
+    }
   })
 
   // When search is pressed on the menu toggle the search box
@@ -101,27 +115,53 @@ function loadSearch(){
   })
 
   // When the search form is submitted
-  $('#searchForm').on('submit', function(e){
-    // Stop the default action
+  $('#searchForm').on('submit', handleSearch)
+}
+
+function handleSearch(e){
+  NProgress.start()
+
+  // Stop the default action
+  if(e){
     e.preventDefault()
+  }
 
-    // Find the results from lunr
-    results = idx.search($('#searchField').val())
+  // Find the results from lunr
+  results = idx.search($('#searchField').val())
 
-    // Empty #content and put a list in for the results
-    $('#content').html('<h1>Search Results (' + results.length + ')</h1>')
-    $('#content').append('<ul id="searchResults"></ul>')
+  // Empty #content and put a list in for the results
+  $('#content').html('<h1>Search Results (' + results.length + ')</h1>')
+  $('#content').append('<ul id="searchResults"></ul>')
 
-    // Loop through results
-    $.each(results, function(index, result){
-      // Get the entry from the window global
-      entry = window.searchData[result.ref]
+  // Push a state to the browser so you can back to this page.
+  if(e){
+    history.pushState({
+      'title': $('title').html(),
+      'content': $('#content').html()
+    }, "Search Results", window.location + "?search=" + $('#searchField').val())
+  }
 
-      // Append the entry to the list.
-      $('#searchResults').append('<li><a href="' + entry.url + '">' + entry.title + '</li>')
-    })
+  // Loop through results
+  $.each(results, function(index, result){
+    // Get the entry from the window global
+    entry = window.searchData[result.ref]
 
-    // Bind the links to make them ajaxy
-    bindLinks()
+    // Append the entry to the list.
+    $('#searchResults').append('<li><a href="' + entry.url + '">' + entry.title + '</li>')
   })
+
+  // Bind the links to make them ajaxy
+  bindLinks()
+
+  NProgress.done()
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
