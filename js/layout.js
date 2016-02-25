@@ -120,5 +120,8 @@ function loadSearch(){
       // Append the entry to the list.
       $('#searchResults').append('<li><a href="' + entry.url + '">' + entry.title + '</li>')
     })
+
+    // Bind the links to make them ajaxy
+    bindLinks()
   })
 }
