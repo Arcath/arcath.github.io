@@ -3,6 +3,15 @@ $(document).on('ready', function(){
   loadSearch()
 })
 
+$(window).on("popstate", function(e) {
+  NProgress.start()
+  $('title').html(e.originalEvent.state.title)
+  $('#content').html(e.originalEvent.state.content)
+  updateExternals()
+  bindLinks()
+  NProgress.done()
+})
+
 function bindLinks(){
   $("a[href^='/']").on('click', function(e){
     // Stop link from activating
@@ -27,27 +36,12 @@ function bindLinks(){
       $('#content').html($(data).find('#content').html())
 
       // Push a new state to the browser
-      history.pushState({}, newTitle, url)
+      history.pushState({
+        'title': $('title').html(),
+        'content': $('#content').html()
+      }, newTitle, url)
 
-      // Update Google Analytics
-      ga('set', 'location', window.location.href);
-      ga('send', 'pageview');
-
-      // Update disqus
-      // If there is a disqus_thread on the page?
-      if($('#disqus_thread').length !== 0){
-        // Has Disqus been loaded before
-        if ('undefined' !== typeof DISQUS){
-          // Reset Disqus
-          DISQUS.reset({
-            reload: true,
-            config: function () {
-              this.page.identifier = disqus_identifier
-              this.page.url = disqus_url
-            }
-          });
-        }
-      }
+      updateExternals()
 
       // Make NProgress finish
       NProgress.done()
@@ -56,6 +50,28 @@ function bindLinks(){
       bindLinks()
     })
   })
+}
+
+function updateExternals(){
+  // Update Google Analytics
+  ga('set', 'location', window.location.href);
+  ga('send', 'pageview');
+
+  // Update disqus
+  // If there is a disqus_thread on the page?
+  if($('#disqus_thread').length !== 0){
+    // Has Disqus been loaded before
+    if ('undefined' !== typeof DISQUS){
+      // Reset Disqus
+      DISQUS.reset({
+        reload: true,
+        config: function () {
+          this.page.identifier = disqus_identifier
+          this.page.url = disqus_url
+        }
+      });
+    }
+  }
 }
 
 function loadSearch(){
