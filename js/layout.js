@@ -95,7 +95,8 @@ function loadSearch(){
   })
 
   // When search is pressed on the menu toggle the search box
-  $('#search').on('click', function(){
+  $('#search').on('click', function(e){
+    e.preventDefault()
     $('.searchForm').toggleClass('show')
   })
 
