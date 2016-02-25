@@ -7,11 +7,17 @@ categories: [Jekyll]
 
 This site is pretty fast, lets be honest static HTML loads incredibly quickly as there is no rendering or database overheads to slow it down. That being said AJAX page loading is even faster so can it be done without the use of HTTP headers etc...?
 
-Yes it can, quite easily, I spent more time working on getting Disqis and Google Analytics working again.
+Yes it can, quite easily, I spent more time working on getting Disqus and Google Analytics working again.
 
 ``` javascript
 $(document).on('ready', function(){
   bindLinks()
+})
+
+$(window).on("popstate", function(e) {
+  // When the browser goes back replace the content and title
+  $('title').html(e.originalEvent.state.title)
+  $('#content').html(e.originalEvent.state.content)
 })
 
 function bindLinks(){
@@ -35,7 +41,10 @@ function bindLinks(){
       $('#content').html($(data).find('#content').html())
 
       // Push a new state to the browser
-      history.pushState({}, newTitle, url)
+      history.pushState({
+        'title': $('title').html(),
+        'content': $('#content').html()
+      }, newTitle, url)
 
       // Re Bind to all the links on the page
       bindLinks()
@@ -59,6 +68,15 @@ The code in use on this site is slightly different, I added [NProgress](http://r
 ``` javascript
 $(document).on('ready', function(){
   bindLinks()
+})
+
+$(window).on("popstate", function(e) {
+  NProgress.start()
+  $('title').html(e.originalEvent.state.title)
+  $('#content').html(e.originalEvent.state.content)
+  updateExternals()
+  bindLinks()
+  NProgress.done()
 })
 
 function bindLinks(){
@@ -85,27 +103,12 @@ function bindLinks(){
       $('#content').html($(data).find('#content').html())
 
       // Push a new state to the browser
-      history.pushState({}, newTitle, url)
+      history.pushState({
+        'title': $('title').html(),
+        'content': $('#content').html()
+      }, newTitle, url)
 
-      // Update Google Analytics
-      ga('set', 'location', window.location.href);
-      ga('send', 'pageview');
-
-      // Update disqus
-      // If there is a disqus_thread on the page?
-      if($('#disqus_thread').length !== 0){
-        // Has Disqus been loaded before
-        if ('undefined' !== typeof DISQUS){
-          // Reset Disqus
-          DISQUS.reset({
-            reload: true,
-            config: function () {
-              this.page.identifier = disqus_identifier
-              this.page.url = disqus_url
-            }
-          });
-        }
-      }
+      updateExternals()
 
       // Make NProgress finish
       NProgress.done()
@@ -115,6 +118,31 @@ function bindLinks(){
     })
   })
 }
+
+function updateExternals(){
+  // Update Google Analytics
+  ga('set', 'location', window.location.href);
+  ga('send', 'pageview');
+
+  // Update disqus
+  // If there is a disqus_thread on the page?
+  if($('#disqus_thread').length !== 0){
+    // Has Disqus been loaded before
+    if ('undefined' !== typeof DISQUS){
+      // Reset Disqus
+      DISQUS.reset({
+        reload: true,
+        config: function () {
+          this.page.identifier = disqus_identifier
+          this.page.url = disqus_url
+        }
+      });
+    }
+  }
+}
 ```
 
 This effect is pretty cool and does speed up navigating my site a bit on Github Pages but mostly it just looks cool.
+
+
+> Revised 25/2/16 to include popstate support fixing an issue with going back
