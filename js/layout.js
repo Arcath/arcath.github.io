@@ -132,6 +132,7 @@ function handleSearch(e){
   // Empty #content and put a list in for the results
   $('#content').html('<h1>Search Results (' + results.length + ')</h1>')
   $('#content').append('<ul id="searchResults"></ul>')
+  $('title').html("Search Results")
 
   // Push a state to the browser so you can back to this page.
   if(e){
