@@ -1,6 +1,12 @@
 $(document).on('ready', function(){
   bindLinks()
   loadSearch()
+  categoryPage()
+
+  if(getParameterByName('category')){
+    category = getParameterByName('category')
+    showCategory(category)
+  }
 })
 
 $(window).on("popstate", function(e) {
@@ -48,6 +54,7 @@ function bindLinks(){
 
       // Re Bind to all the links on the page
       bindLinks()
+      categoryPage()
     })
   })
 }
@@ -165,4 +172,36 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function categoryPage(){
+  $('.category-list a').on('click', function(e){
+    e.preventDefault()
+
+    category = $(this).html()
+
+    showCategory(category)
+  })
+}
+
+function showCategory(category){
+  NProgress.start()
+
+  $.getJSON('/categories.json', function(data){
+    posts = data[category]
+    $('title').html(category)
+    $('#content').html("<h1>" + category + "</h1><ul id=\"posts-list\"></ul>")
+
+    $.each(posts, function(index, entry){
+      $('#posts-list').append('<li><a href="' + entry.url + '">' + entry.title + '</a></li>')
+    })
+
+    history.pushState({
+      'title': $('title').html(),
+      'content': $('#content').html()
+    }, category, "/category.html?category=" + category)
+
+    categoryPage()
+    NProgress.done()
+  })
 }

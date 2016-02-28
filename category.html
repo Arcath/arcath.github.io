@@ -1,0 +1,11 @@
+---
+layout: twentysixteen
+---
+
+<h1>Categories</h1>
+
+<ul class="category-list">
+{% for category in site.categories %}
+  <li><a href="#">{{ category | first }}</a> ({{ category[1] | size }})</li>
+{% endfor %}
+</ul>

@@ -3,6 +3,10 @@ layout: twentysixteen
 ---
 
 <h2>{{ page.title }}</h2>
+<p>
+  <i>{{ page.date | date: '%B %d, %Y' }}</i><br />
+  <b>{{ page.categories | join: " " }}</b>
+</p>
 
 {{ content }}
 
