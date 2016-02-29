@@ -1,7 +1,16 @@
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 $(document).on('ready', function(){
   bindLinks()
   loadSearch()
-  categoryPage()
 
   if(getParameterByName('category')){
     category = getParameterByName('category')
@@ -10,11 +19,18 @@ $(document).on('ready', function(){
 })
 
 $(window).on("popstate", function(e) {
+  // Start NProgress
   NProgress.start()
+
+  // Set the Title and content
   $('title').html(e.originalEvent.state.title)
   $('#content').html(e.originalEvent.state.content)
-  updateExternals()
+
+  // Reload on-page apis
+  updatePageAPIs()
   bindLinks()
+
+  // Finish NProgress
   NProgress.done()
 })
 
@@ -47,19 +63,26 @@ function bindLinks(){
         'content': $('#content').html()
       }, newTitle, url)
 
-      updateExternals()
+      updatePageAPIs()
 
       // Make NProgress finish
       NProgress.done()
 
       // Re Bind to all the links on the page
       bindLinks()
-      categoryPage()
     })
+  })
+
+  $('.category-list a').on('click', function(e){
+    e.preventDefault()
+
+    category = $(this).html()
+
+    showCategory(category)
   })
 }
 
-function updateExternals(){
+function updatePageAPIs(){
   // Update Google Analytics
   ga('set', 'location', window.location.href);
   ga('send', 'pageview');
@@ -79,6 +102,28 @@ function updateExternals(){
       });
     }
   }
+}
+
+function showCategory(category){
+  NProgress.start()
+
+  $.getJSON('/categories.json', function(data){
+    posts = data[category]
+    $('title').html(category)
+    $('#content').html("<h1>" + category + "</h1><ul id=\"posts-list\"></ul>")
+
+    $.each(posts, function(index, entry){
+      $('#posts-list').append('<li><a href="' + entry.url + '">' + entry.title + '</a></li>')
+    })
+
+    history.pushState({
+      'title': $('title').html(),
+      'content': $('#content').html()
+    }, category, "/category.html?category=" + category)
+
+    bindLinks()
+    NProgress.done()
+  })
 }
 
 function loadSearch(){
@@ -162,46 +207,4 @@ function handleSearch(e){
   bindLinks()
 
   NProgress.done()
-}
-
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-function categoryPage(){
-  $('.category-list a').on('click', function(e){
-    e.preventDefault()
-
-    category = $(this).html()
-
-    showCategory(category)
-  })
-}
-
-function showCategory(category){
-  NProgress.start()
-
-  $.getJSON('/categories.json', function(data){
-    posts = data[category]
-    $('title').html(category)
-    $('#content').html("<h1>" + category + "</h1><ul id=\"posts-list\"></ul>")
-
-    $.each(posts, function(index, entry){
-      $('#posts-list').append('<li><a href="' + entry.url + '">' + entry.title + '</a></li>')
-    })
-
-    history.pushState({
-      'title': $('title').html(),
-      'content': $('#content').html()
-    }, category, "/category.html?category=" + category)
-
-    categoryPage()
-    NProgress.done()
-  })
 }
