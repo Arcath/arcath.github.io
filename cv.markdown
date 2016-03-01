@@ -36,7 +36,7 @@ I also work closely with our designer to turn his website designs into Wordpress
 
 I created and maintained websites for the schools supported by the North West Office of Empowered Learning. These sites where all static HTML/CSS that I manually updated.
 
-I also assisted on installations during school holidays helping the engineers setup and deploy equipment in the schools the company suported.
+I also assisted on installations during school holidays helping the engineers setup and deploy equipment in the schools the company supported.
 
 ## Education
 
@@ -58,7 +58,7 @@ I also assisted on installations during school holidays helping the engineers se
 
  - Active Directory
  - Group Policy
- - Windows 7/8/8.1
+ - Windows 7/8/8.1/10
  - Windows Deployment Services
  - Windows Server 2008R2
  - Windows Server 2012/2012R2
