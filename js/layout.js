@@ -104,16 +104,22 @@ function updatePageAPIs(){
   }
 }
 
+function decodeEntities(encodedString) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = encodedString;
+    return textArea.value;
+}
+
 function showCategory(category){
   NProgress.start()
 
   $.getJSON('/categories.json', function(data){
     posts = data[category]
     $('title').html(category)
-    $('#content').html("<h1>" + category + "</h1><ul id=\"posts-list\"></ul>")
+    $('#content').html("<h1>" + category + "</h1>")
 
     $.each(posts, function(index, entry){
-      $('#posts-list').append('<li><a href="' + entry.url + '">' + entry.title + '</a></li>')
+      $('#content').append(decodeEntities(entry.html))
     })
 
     history.pushState({
@@ -183,7 +189,6 @@ function handleSearch(e){
 
   // Empty #content and put a list in for the results
   $('#content').html('<h1>Search Results (' + results.length + ')</h1>')
-  $('#content').append('<ul id="searchResults"></ul>')
   $('title').html("Search Results")
 
   // Push a state to the browser so you can back to this page.
@@ -200,7 +205,7 @@ function handleSearch(e){
     entry = window.searchData[result.ref]
 
     // Append the entry to the list.
-    $('#searchResults').append('<li><a href="' + entry.url + '">' + entry.title + '</li>')
+    $('#content').append(decodeEntities(entry.html))
   })
 
   // Bind the links to make them ajaxy

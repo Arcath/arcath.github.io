@@ -1,0 +1,5 @@
+<div class="post">
+  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  {{ post.excerpt }}
+  <div class="details"><i class="icon ion-ios-bookmarks-outline"></i> {{ post.categories | join: ", " }} <i class="icon ion-ios-calendar-outline"></i> {{ post.date | date: '%B %d, %Y' }}</div>
+</div>
