@@ -14,6 +14,7 @@ It can:
   - Build your site from a command
   - Create new posts
   - Manage drafts
+  - Provides language grammars to merge Liquid & YAML into HTML/XML.
 
 [Atom]: http://atom.io
 [Jekyll]: http://jekyllrb.com
