@@ -19,7 +19,7 @@ function updatePage(title, content, url){
   history.pushState({
     'title': $('title').html(),
     'content': $('#content').html()
-  }, newTitle, url)
+  }, title, url)
 
   bindLinks()
   updatePageAPIs()
@@ -62,19 +62,26 @@ function bindLinks(){
     // Get the URL to load
     url = $(this).attr('href')
 
-    // Send a Get request to the URL
-    $.get(url, function(data){
-      // Get the title of the new page
-      regex = /<title>(.*)<\/title>/g
-      newTitle = regex.exec(data)[1]
-
-      content = $(data).find('#content').html()
-
-      updatePage(newTitle, content, url)
-
-      // Make NProgress finish
+    pattern = /\/category\.html\?category=(.*)/
+    if(pattern.test(url)){
+      matches = pattern.exec(url)
+      showCategory(matches[1])
       NProgress.done()
-    })
+    }else{
+      // Send a Get request to the URL
+      $.get(url, function(data){
+        // Get the title of the new page
+        regex = /<title>(.*)<\/title>/g
+        newTitle = regex.exec(data)[1]
+
+        content = $(data).find('#content').html()
+
+        updatePage(newTitle, content, url)
+
+        // Make NProgress finish
+        NProgress.done()
+      })
+    }
   })
 
   $('.category-list a').on('click', function(e){
