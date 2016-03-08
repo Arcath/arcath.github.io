@@ -8,6 +8,23 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+function updatePage(title, content, url){
+  // Set the title to the new title
+  $('title').html(title)
+
+  // Replace the content
+  $('#content').html(content)
+
+  // Push a new state to the browser
+  history.pushState({
+    'title': $('title').html(),
+    'content': $('#content').html()
+  }, newTitle, url)
+
+  bindLinks()
+  updatePageAPIs()
+}
+
 $(document).on('ready', function(){
   bindLinks()
   loadSearch()
@@ -51,25 +68,12 @@ function bindLinks(){
       regex = /<title>(.*)<\/title>/g
       newTitle = regex.exec(data)[1]
 
-      // Set the title to the new title
-      $('title').html(newTitle)
+      content = $(data).find('#content').html()
 
-      // Replace the content
-      $('#content').html($(data).find('#content').html())
-
-      // Push a new state to the browser
-      history.pushState({
-        'title': $('title').html(),
-        'content': $('#content').html()
-      }, newTitle, url)
-
-      updatePageAPIs()
+      updatePage(newTitle, content, url)
 
       // Make NProgress finish
       NProgress.done()
-
-      // Re Bind to all the links on the page
-      bindLinks()
     })
   })
 
@@ -115,19 +119,14 @@ function showCategory(category){
 
   $.getJSON('/categories.json', function(data){
     posts = data[category]
-    $('title').html(category)
     $('#content').html("<h1>" + category + "</h1>")
 
     $.each(posts, function(index, entry){
       $('#content').append(decodeEntities(entry.html))
     })
 
-    history.pushState({
-      'title': $('title').html(),
-      'content': $('#content').html()
-    }, category, "/category.html?category=" + category)
+    updatePage(category, $('#content').html(), "/category.html?category=" + category)
 
-    bindLinks()
     NProgress.done()
   })
 }
@@ -174,6 +173,7 @@ function loadSearch(){
 
   // When the search form is submitted
   $('#searchForm').on('submit', handleSearch)
+  $('#searchPageForm').on('submit', handleSearch)
 }
 
 function handleSearch(e){
@@ -185,7 +185,8 @@ function handleSearch(e){
   }
 
   // Find the results from lunr
-  results = idx.search($('#searchField').val())
+  query = ($('#searchField').val() || $('#searchPageField').val())
+  results = idx.search(query)
 
   // Empty #content and put a list in for the results
   $('#content').html('<h1>Search Results (' + results.length + ')</h1>')
@@ -196,7 +197,7 @@ function handleSearch(e){
     history.pushState({
       'title': $('title').html(),
       'content': $('#content').html()
-    }, "Search Results", window.location + "?search=" + $('#searchField').val())
+    }, "Search Results", "/search.html?search=" + query)
   }
 
   // Loop through results
