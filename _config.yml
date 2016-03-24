@@ -6,13 +6,16 @@ domain: arcath.net
 #incremental: true
 show_drafts: true
 
+exclude:
+  - node_modules
+
 kramdown:
   input: GFM
 
 gems:
   - jekyll-feed
   - jekyll-gist
-  - jekyll-sitemap
+  - jekyll-coffeescript
 
 gist:
   noscript: false

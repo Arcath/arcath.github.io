@@ -157,7 +157,7 @@ a:hover{
 .searchForm{
   background-color:#f0f0f0;
   position:fixed;
-  top:-50px;
+  top:0px;
   height:40px;
   width:100%;
   text-align:center;
@@ -176,10 +176,6 @@ a:hover{
       width:200px;
     }
   }
-}
-
-.searchForm.show{
-  margin-top:50px;
 }
 
 /* Make clicks pass-through */
@@ -254,4 +250,39 @@ a:hover{
 @keyframes nprogress-spinner {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.loader{
+  margin:auto;
+  width:200px;
+
+  h1{
+    text-align:center;
+  }
+
+  img{
+    border-radius:100px;
+  }
+
+  .spinner {
+    display: block;
+    position: relative;
+    z-index: 1031;
+    top: -204px;
+    left: 0px;
+  }
+
+  .spinner-icon {
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+
+    border: solid 10px transparent;
+    border-top-color: #29d;
+    border-left-color: #29d;
+    border-radius: 50%;
+
+    -webkit-animation: nprogress-spinner 400ms linear infinite;
+            animation: nprogress-spinner 400ms linear infinite;
+  }
 }

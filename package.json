@@ -1,0 +1,19 @@
+{
+  "name": "arcath.github.io",
+  "private": true,
+  "description": "My Jekyll Site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arcath/arcath.github.io.git"
+  },
+  "homepage": "http://arcath.net",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "marked": "^0.3.5",
+    "react": "^0.14.7",
+    "react-disqus-thread": "^0.3.1",
+    "react-dom": "^0.14.7",
+    "react-ga": "^1.2.0",
+    "react-router": "^2.0.1"
+  }
+}

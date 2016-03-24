@@ -1,6 +1,7 @@
 ---
-layout: twentysixteen
+layout: react
 title: "CV"
+markdown: true
 ---
 
 # CV

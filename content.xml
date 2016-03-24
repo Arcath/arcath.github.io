@@ -1,0 +1,53 @@
+---
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+  <title>{{ site.name }}</title>
+  <posts>
+    {% for post in site.posts %}
+      <post>
+        <type>post</type>
+        <year>{{ post.date | date: "%Y" | xml_escape }}</year>
+        <title>{{ post.title | xml_escape }}</title>
+        <excerpt>{{ post.excerpt | xml_escape }}</excerpt>
+        <content>{{ post.content | xml_escape }}</content>
+        <link>{{ post.url | xml_escape }}</link>
+        <category>{{ post.categories[0] | xml_escape }}</category>
+        <categories>{{ post.categories | join: " " }}</categories>
+        <date>{{ post.date | date: '%B %d, %Y' }}</date>
+      </post>
+    {% endfor %}
+  </posts>
+  <pages>
+    {% for page in site.pages %}
+      {% unless page.url contains ".js" %}
+        <page>
+          <type>page</type>
+          <title>{{ page.title | xml_escape }}</title>
+          <content>{{ page.content | xml_escape }}</content>
+          <link>{{ page.url }}</link>
+          <markdown>{{ page.markdown }}</markdown>
+        </page>
+      {% endunless %}
+    {% endfor %}
+  </pages>
+  <categories>
+    {% for category in site.categories %}
+      <category>
+        <type>category</type>
+        <name>{{ category | first | xml_escape }}</name>
+        <count>{{ category[1] | size }}</count>
+        <link>/category/{{ category | first | xml_escape }}</link>
+        <posts>
+          {% for post in category[1] %}
+            <post>
+              <title>{{ post.title | xml_escape }}</title>
+              <link>{{ post.url | xml_escape }}</link>
+            </post>
+          {% endfor %}
+        </posts>
+      </category>
+    {% endfor %}
+  </categories>
+</site>
