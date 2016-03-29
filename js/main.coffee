@@ -78,6 +78,8 @@ getData = (callback) ->
 
 
 MenuButton = React.createClass({
+  displayName: 'MenuButton'
+
   render: ->
     React.createElement(
       'span'
@@ -87,6 +89,8 @@ MenuButton = React.createClass({
 })
 
 Layout = React.createClass({
+  displayName: 'Layout'
+
   contextTypes:
     router: ->
       return React.PropTypes.func.isRequired
@@ -150,6 +154,8 @@ Layout = React.createClass({
 })
 
 Static = React.createClass({
+  displayName: 'Static'
+
   render: ->
     page = @props.content.findOne({link: @props.location.pathname})
     setTitle(page.title)
@@ -164,6 +170,8 @@ Static = React.createClass({
 })
 
 NotFound = React.createClass({
+  displayName: 'NotFound'
+
   componentDidMount: ->
     setTitle('Error 404')
 
@@ -176,6 +184,8 @@ NotFound = React.createClass({
 })
 
 Blog = React.createClass({
+  displayName: 'Blog'
+
   blogYears: ->
     posts = @props.content.where({type: 'post'})
     years = []
@@ -198,6 +208,8 @@ Blog = React.createClass({
 })
 
 PostDetails = React.createClass({
+  displayName: 'PostDetails'
+
   render: ->
     React.DOM.div {className: 'post'},
       React.DOM.h3 {}, React.createElement(Link, {to: @props.post.link}, @props.post.title)
@@ -214,6 +226,8 @@ PostDetails = React.createClass({
 })
 
 Categories = React.createClass({
+  displayName: 'Categories'
+
   render: ->
     setTitle('Categories')
 
@@ -226,6 +240,8 @@ Categories = React.createClass({
 })
 
 Category = React.createClass({
+  displayName: 'Category'
+
   render: ->
     category = @props.content.findOne({type: 'category'}, {name: @props.routeParams.name})
 
@@ -245,6 +261,8 @@ Category = React.createClass({
 })
 
 Post = React.createClass({
+  displayName: 'Post'
+
   render: ->
     post = @props.content.findOne({link: @props.location.pathname})
 
@@ -275,6 +293,8 @@ Post = React.createClass({
 })
 
 Search = React.createClass({
+  displayName: 'Search'
+
   render: ->
     React.DOM.div {},
       React.DOM.div {},
@@ -286,6 +306,8 @@ Search = React.createClass({
 })
 
 Loading = React.createClass({
+  displayName: 'Loading'
+
   componentDidMount: ->
     setTitle('Loading')
 
@@ -304,6 +326,8 @@ Loading = React.createClass({
 })
 
 Loader = React.createClass({
+  displayName: 'Loader'
+
   getInitialState: ->
     { loaded: false }
 
