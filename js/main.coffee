@@ -193,7 +193,7 @@ Blog = React.createClass({
       for year in @blogYears()
         React.DOM.div {key: year},
           React.DOM.h2 {}, year
-          for post in @props.content.where({type: 'post'}, {year: year})
+          for post in @props.content.order({type: 'post'}, {year: year}, 'sortDate').reverse()
             React.createElement(PostDetails, {key: post.___id, post: post})
 })
 

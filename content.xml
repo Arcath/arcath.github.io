@@ -16,6 +16,7 @@
         <category>{{ post.categories[0] | xml_escape }}</category>
         <categories>{{ post.categories | join: " " }}</categories>
         <date>{{ post.date | date: '%B %d, %Y' }}</date>
+        <sortDate>{{ post.date | date: "%Y%m%d" }}</sortDate>
       </post>
     {% endfor %}
   </posts>
