@@ -152,9 +152,6 @@ Layout = React.createClass({
 Static = React.createClass({
   render: ->
     page = @props.content.findOne({link: @props.location.pathname})
-
-    console.dir page
-
     setTitle(page.title)
 
     if page.markdown
