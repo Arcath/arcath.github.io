@@ -78,6 +78,7 @@ I also assisted on installations during school holidays helping the engineers se
  - Nginx
  - [NodeJS]
  - [Express]
+ - [React]
 
  My [GitHub Profile] is a great place to see examples of my development work.
 
@@ -95,3 +96,4 @@ I also assisted on installations during school holidays helping the engineers se
 [Express]: http://expressjs.com/
 [GitHub Profile]: http://www.github.com/Arcath
 [Atom]: http://atom.io
+[React]: https://facebook.github.io/react/
