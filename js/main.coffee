@@ -195,16 +195,42 @@ Blog = React.createClass({
 
     return years
 
-  render: ->
+  months: (year) ->
+    posts = @props.content.where({type: 'post'}, {year: year})
+    months = []
+    for post in posts
+      if months.indexOf(post.month) == -1
+        months.push post.month
+
+    return months
+
+  componentDidMount: ->
     setTitle('Blog')
 
+  postsInYear: (year) ->
+    @props.content.order({type: 'post'}, {year: year}, 'sortDate').reverse()
+
+  postsInMonth: (year, month) ->
+    @props.content.order({type: 'post'}, {year: year}, {month: month}, 'sortDate').reverse()
+
+  render: ->
     React.DOM.div {},
       React.DOM.h1 {}, 'Blog'
       for year in @blogYears()
         React.DOM.div {key: year},
           React.DOM.h2 {}, year
-          for post in @props.content.order({type: 'post'}, {year: year}, 'sortDate').reverse()
-            React.createElement(PostDetails, {key: post.___id, post: post})
+
+          if @postsInYear(year).length <= 9
+            for post in @postsInYear(year)
+              React.createElement(PostDetails, {key: post.___id, post: post})
+
+          else
+            for month in @months(year)
+              React.DOM.div {key: month},
+                React.DOM.h3 {}, month
+
+                for post in @postsInMonth(year, month)
+                  React.createElement(PostDetails, {key: post.___id, post: post})
 })
 
 PostDetails = React.createClass({
