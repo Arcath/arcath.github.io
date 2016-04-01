@@ -1,7 +1,7 @@
 ---
 collection: projects
 title: 'Jekyll-Atom'
-github: http://github.com/arcath/jekyll-atom
+github: arcath/jekyll-atom
 ---
 
 Jekyll-Atom is a [Atom] Package for working with [Jekyll] sites which moves most of your workflow into Atom.

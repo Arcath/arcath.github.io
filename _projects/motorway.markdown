@@ -1,7 +1,7 @@
 ---
 collection: projects
 title: 'Motorway'
-github: http://github.com/arcath/motorway
+github: arcath/motorway
 npm: 'https://www.npmjs.com/package/motorway'
 ---
 

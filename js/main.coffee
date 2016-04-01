@@ -69,6 +69,9 @@ getData = (callback) ->
         for category in parsedData.site.categories.category
           contentDB.add(category)
 
+        for project in parsedData.site.projects.project
+          contentDB.add(project)
+
         for entry in contentDB.all()
           entry.id = entry.___id
           idx.add(entry)
@@ -331,6 +334,54 @@ Search = React.createClass({
 
 })
 
+Code = React.createClass({
+  displayName: 'Code'
+  componentDidMount: ->
+    setTitle('Code & Projects')
+
+  render: ->
+    React.DOM.div {},
+      React.DOM.h1 {}, 'Code & Projects'
+      React.DOM.p {},
+        "Whilst most of my code is "
+        React.DOM.i {}, "closed source"
+        " and not avliable to the public all of the libraries I have written are."
+      React.DOM.p {},
+        "My "
+        React.DOM.a {href: "https://github.com/Arcath"}, "Github"
+        " has a pretty complete record of my public work since 2009"
+
+      for project in @props.content.order({type: 'project'}, 'title')
+        React.createElement(Project, {key: project.___id, project: project})
+})
+
+Project = React.createClass({
+  displayName: 'Project'
+
+  getInitialState: ->
+    {latestRelease: 'v0.0.0'}
+
+  componentDidMount: ->
+    _ = @
+    Github.repo(@props.project.github).releases (err, releases) ->
+      _.setState({latestRelease: releases[0].tag_name})
+
+  render: ->
+    React.DOM.div {className: 'project'},
+      React.DOM.b {}, @props.project.title
+      React.DOM.span {}, " (#{@state.latestRelease}) "
+      React.DOM.a {href: "https://github.com/" + @props.project.github}, 'Source '
+
+      if @props.project.atom != ""
+        React.DOM.a {href: @props.project.atom}, "Atom "
+
+      if @props.project.npm != ""
+        React.DOM.a {href: @props.project.npm}, "NPM "
+
+      React.DOM.hr {}
+      React.DOM.div {dangerouslySetInnerHTML: {__html: htmlDecode(@props.project.content)}}
+})
+
 Loading = React.createClass({
   displayName: 'Loading'
 
@@ -381,7 +432,7 @@ ArcathNetRouter = (
         Route({name: 'Categories', path: 'category.html', component: Loader, params: {component: Categories}})
         Route({name: 'Category', path: 'category/:name', component: Loader, params: {component: Category}})
         Route({name: 'CV', path: 'cv.html', component: Loader, params: {component: Static}})
-        Route({name: 'Code', path: 'code.html', component: Loader, params: {component: Static}})
+        Route({name: 'Code', path: 'code.html', component: Loader, params: {component: Code}})
 
         Route({name: 'Post', path: ':year/:month/:day/:title.html', component: Loader, params: {component: Post}})
         Route({name: 'Search', path: 'search/:term', component: Loader, params: {component: Search}})

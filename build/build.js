@@ -7,3 +7,7 @@ ReactDisqusThread = require('react-disqus-thread')
 Marked = require('marked')
 
 SODB = require('sodb')
+
+OctoNode = require('octonode')
+
+Github = OctoNode.client()

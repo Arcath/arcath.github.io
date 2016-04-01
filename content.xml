@@ -52,4 +52,17 @@
       </category>
     {% endfor %}
   </categories>
+  <projects>
+    {% for project in site.projects %}
+      <project>
+        <type>project</type>
+        <link>/code.html</link>
+        <title>{{ project.title }}</title>
+        <github>{{ project.github }}</github>
+        <npm>{{ project.npm }}</npm>
+        <atom>{{ project.atom }}</atom>
+        <content>{{ project.content | xml_escape }}</content>
+      </project>
+    {% endfor %}
+  </projects>
 </site>

@@ -1,7 +1,7 @@
 ---
 collection: projects
 title: 'SODB'
-github: http://github.com/arcath/sodb
+github: arcath/sodb
 npm: 'https://www.npmjs.com/package/sodb'
 ---
 
